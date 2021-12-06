@@ -24,15 +24,16 @@ function calcProfitAndLoss(initial, quantity, current)
   
   if (initial > current)
   {
-    let loss = (ip - curr) * qty;
-    var lossPercentage = (loss / ip) * 100;
+    let loss = (ip * qty) - (curr * qty);
+    var lossPercentage = ((loss/(ip * qty))*100);
+    
     outputVal.textContent = `The loss is ${loss} and loss percentage is ${lossPercentage}%`
   
   }
   else if(current > initial)
   {
-    var profit = (curr - ip) * qty;
-    var profitPercentage = (profit / ip) * 100;
+    var profit = (curr * qty) - (ip * qty);
+    var profitPercentage = ((profit/(ip * qty))*100);
     outputVal.textContent = `The profit is ${profit} and profit  percentage is ${profitPercentage}%`;
   }
   else
