@@ -1,6 +1,6 @@
-var initialPrice = document.querySelector("#initial-price");
-var quantityStocks = document.querySelector("#quantity");
-var currPrice = document.querySelector("#current-price");
+var initialPrice = document.querySelector(".initial-price");
+var quantityStocks = document.querySelector(".quantity");
+var currPrice = document.querySelector(".current-price");
 var submitBtn = document.querySelector("#calc");
 var outputVal = document.querySelector("#output-val");
 
@@ -17,20 +17,22 @@ function submitHandler()
 function calcProfitAndLoss(initial, quantity, current)
 {
   
+  var ip = Number(initialPrice.value);
+  var qty = Number(quantityStocks.value);
+  var curr = Number(currPrice.value);
+  
   
   if (initial > current)
   {
-    let loss = (initialPrice.value - currPrice.value) * quantityStocks.value;
-  var lossPercentage = (loss / initialPrice.value) * 100;
-  
-  
+    let loss = (ip - curr) * qty;
+    var lossPercentage = (loss / ip) * 100;
     outputVal.textContent = `The loss is ${loss} and loss percentage is ${lossPercentage}%`
   
   }
   else if(current > initial)
   {
-     var profit = (currPrice.value - initialPrice.value) * quantityStocks.value;
-      var profitPercentage = (profit / initialPrice.value) * 100;
+    var profit = (curr - ip) * qty;
+    var profitPercentage = (profit / ip) * 100;
     outputVal.textContent = `The profit is ${profit} and profit  percentage is ${profitPercentage}%`;
   }
   else
